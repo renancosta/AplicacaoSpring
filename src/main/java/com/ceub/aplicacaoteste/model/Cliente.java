@@ -1,7 +1,10 @@
 package com.ceub.aplicacaoteste.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -14,6 +17,8 @@ public class Cliente {
 	private String uf;
 	private String cnpj;
 	private Integer ie;
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedidos;
 	
 	public String getNome() {
 		return nome;
@@ -56,6 +61,18 @@ public class Cliente {
 	}
 	public void setIe(Integer ie) {
 		this.ie = ie;
+	}
+	public Integer getCod_cliente() {
+		return cod_cliente;
+	}
+	public void setCod_cliente(Integer cod_cliente) {
+		this.cod_cliente = cod_cliente;
+	}
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 }
